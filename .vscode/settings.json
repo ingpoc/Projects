@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./TradingPlatform/Services",
+        "./TradingPlatform/Config"
+    ]
+}

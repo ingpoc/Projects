@@ -1,0 +1,32 @@
+# dependencies
+/client/node_modules
+/myenv/
+
+# testing
+/client/coverage
+
+# production
+/client/build
+
+# misc
+.DS_Store
+/client/.env.local
+/client/.env.development.local
+/client/.env.test.local
+/client/.env.production.local
+
+/client/npm-debug.log*
+/client/yarn-debug.log*
+/client/yarn-error.log*
+
+# Ignore all .pyc files
+*.pyc
+
+# Ignore all __pycache__ directories
+__pycache__/
+
+# Ignore other files that should not be committed
+*.log
+*.csv
+*.json
+*.sqlite

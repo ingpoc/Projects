@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+  padding-top: 58px; /* Adjust this value to match the height of your header */
+}
+
+.App-header {
+  background: linear-gradient(to bottom, #1c1c1e 0%,#2d2d2d 100%); /* Linear gradient background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  display: block;
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  height: 48px;
+  max-height: 44px;
+  font-size: 17px;
+}
+.navbar-brand {
+  font-family: 'San Francisco', 'Roboto', 'Arial', sans-serif; /* Modern sans-serif font */
+  padding: 10px 20px; /* Add padding to the top and bottom */
+  color: #ffffff; /* White text color */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.navbar-brand:hover {
+  color: #d3d3d3; /* Light grey text color when hovered */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add a white glow around the element */
+  transform: scale(1.05); /* Slightly increase the size of the element */
+  cursor: pointer;
+}
+
+
+.Content {
+  margin-top: 48px; /* Adjust this value to match the height of your header */
+}
+
+.App-footer {
+  background-color: #282c34;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.App-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.App-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.App-content table th, .App-content table td {
+  padding: 12px;
+}
+
+.App-content table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.App-content table th {
+  background-color: #333;
+  color: #fff;
+}
