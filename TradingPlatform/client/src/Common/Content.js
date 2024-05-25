@@ -9,7 +9,7 @@ import { Modal } from 'react-bootstrap';
 import { useDialog } from '../Common/useDialog';
 import LoadingSpinner from '../Common/LoadingSpinner';
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://localhost:5000';  // Change this to remove /api
 
 function Content() {
   const navigate = useNavigate();
@@ -24,10 +24,10 @@ function Content() {
   ]);
 
   const getTickers = useCallback(async () => {
-    if (tickers.length === 0) { // Ensure fetching only if tickers are empty
+    if (tickers.length === 0) {
       setLoading(true);
       try {
-        const response = await axios.get(`/tickers`);
+        const response = await axios.get('/api/tickers');  // Ensure /api is included here
         if (response && response.data && response.data.length > 0) {
           setTickers(response.data);
           navigate('/tickers');
