@@ -4,9 +4,7 @@ import { Modal, Button } from 'react-bootstrap';
 import { useDialog } from '../Common/useDialog';
 import axios from 'axios';
 
-
 axios.defaults.baseURL = 'http://localhost:5000/api';
-
 
 function formatMoney(amount) {
     return `$${(amount / 1e9).toFixed(2)}B`;
@@ -19,12 +17,11 @@ function FinancialsTable() {
     const [financials, setFinancials] = useState(location.state ? location.state.financials : []);
     const { modalIsOpen, modalMessage, showDialog, closeModal, modalTitle } = useDialog();
 
-
     useEffect(() => {
         if (!financials) {
             showDialog('Financial result not available');
         }
-    }, [financials]);
+    }, [financials, showDialog]); // Add showDialog to the dependency array
 
     const analyzeTrend = async (financial) => {
         try {
@@ -47,8 +44,6 @@ function FinancialsTable() {
                 showDialog('Financial data not available for this ticker', 'Error');
             }
         }
-
-
     };
 
     return (

@@ -1,4 +1,3 @@
-import LoadingSpinner from './LoadingSpinner';
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './Content.css';
@@ -8,6 +7,9 @@ import FinancialsTable from '../Analysis/FinancialsTable';
 import { useNavigate, useRoutes } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 import { useDialog } from '../Common/useDialog';
+import LoadingSpinner from '../Common/LoadingSpinner';
+
+axios.defaults.baseURL = 'http://localhost:5000/api';
 
 function Content() {
   const navigate = useNavigate();
@@ -22,22 +24,24 @@ function Content() {
   ]);
 
   const getTickers = useCallback(async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(`/tickers`);
-      if (response && (!response.data || response.data.length === 0)) {
+    if (tickers.length === 0) { // Ensure fetching only if tickers are empty
+      setLoading(true);
+      try {
+        const response = await axios.get(`/tickers`);
+        if (response && response.data && response.data.length > 0) {
+          setTickers(response.data);
+          navigate('/tickers');
+        } else {
+          showDialog('Tickers not available');
+        }
+      } catch (error) {
+        console.error('Failed to fetch Ticker Data:', error);
         showDialog('Tickers not available');
-      } else {
-        setTickers(response.data);
-        navigate('/tickers');
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error('Failed to fetch Ticker Data:', error);
-      showDialog('Tickers not available');
-    } finally {
-      setLoading(false);
     }
-  }, []);
+  }, [navigate, showDialog, tickers.length]);
 
   useEffect(() => {
     getTickers();

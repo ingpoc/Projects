@@ -3,14 +3,12 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Content from './Common/Content';
 import TrendAnalysis from './Analysis/TrendAnalysis'; // Update the path if necessary
 
-
-
 function RedirectToTickers() {
   const navigate = useNavigate();
 
   useEffect(() => {
     navigate('/tickers');
-  }, []);
+  }, [navigate]); // Add navigate to the dependency array
 
   return null;
 }
