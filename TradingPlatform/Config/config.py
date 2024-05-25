@@ -1,5 +1,7 @@
 # Load API key from configuration file or environment variable
-API_KEY = "GWr7MPomxe8zpPq30Vym5FyEDWdGQZRp"
+FMP_API_KEY = "gWEBPNdF5WyK9A7HBESVLZXmWf02qNjG"
+FMP_API_BASE_URL = 'https://financialmodelingprep.com/api/v3/'
+POLYGON_API_KEY = "GWr7MPomxe8zpPq30Vym5FyEDWdGQZRp"
 TWITTER_CONSUMER_KEY = 'KPqvVkPiAKmcz88gWFzzkb3Ud'
 TWITTER_CONSUMER_SECRET = 'PXJoY8o9NntOby8OrDJ76wTtwYbvsjNwgOXdCjW8ZK0dLi62jh'
 TWITTER_ACCESS_TOKEN = '1273564645203144704-gQYpqgaxqw3DKyHT2E8IF16SvIyXcr'

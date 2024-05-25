@@ -24,6 +24,7 @@ function Content() {
   ]);
 
   const getTickers = useCallback(async () => {
+    if (tickers.length === 0) {
     setLoading(true);
     try {
       const response = await axios.get(`/tickers`);
@@ -39,11 +40,12 @@ function Content() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }
+}, [tickers]);
 
   useEffect(() => {
     getTickers();
-  }, []);
+  }, [getTickers]);
 
   if (loading) {
     return <div>Loading...</div>;
