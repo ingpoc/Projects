@@ -1,3 +1,4 @@
+import LoadingSpinner from './LoadingSpinner';
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './Content.css';
@@ -7,9 +8,6 @@ import FinancialsTable from '../Analysis/FinancialsTable';
 import { useNavigate, useRoutes } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 import { useDialog } from '../Common/useDialog';
-
-axios.defaults.baseURL = 'http://localhost:5000/api';
-
 
 function Content() {
   const navigate = useNavigate();
@@ -24,7 +22,6 @@ function Content() {
   ]);
 
   const getTickers = useCallback(async () => {
-    if (tickers.length === 0) {
     setLoading(true);
     try {
       const response = await axios.get(`/tickers`);
@@ -40,15 +37,14 @@ function Content() {
     } finally {
       setLoading(false);
     }
-  }
-}, [tickers]);
+  }, []);
 
   useEffect(() => {
     getTickers();
   }, [getTickers]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner />;
   }
 
   return (

@@ -1,0 +1,10 @@
+flask
+flask-cors
+requests
+textblob
+polygon-api-client
+pandas
+ta
+tweepy
+redis
+pymongo
