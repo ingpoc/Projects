@@ -30,7 +30,8 @@ TickersTable.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       symbol: PropTypes.string.isRequired,
-      last_refreshed: PropTypes.string.isRequired
+      last_refreshed: PropTypes.string.isRequired,
+      time_series: PropTypes.object.isRequired
     })
   ).isRequired
 };

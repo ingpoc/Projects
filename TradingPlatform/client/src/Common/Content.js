@@ -1,4 +1,3 @@
-// Content.js (React frontend)
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './Content.css';
@@ -15,7 +14,11 @@ function Content() {
     try {
       const response = await axios.get('/tickers');
       if (response.data.length > 0) {
-        setTickers(response.data);
+        const formattedTickers = response.data.map(ticker => ({
+          ...ticker,
+          last_refreshed: Object.keys(ticker.time_series)[0] || 'N/A'
+        }));
+        setTickers(formattedTickers);
       }
     } catch (error) {
       console.error('Failed to fetch Ticker Data:', error);

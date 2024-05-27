@@ -1,10 +1,8 @@
 import json
-from typing import List
 from urllib.request import urlopen
 import certifi
 from Config.config import ALPHA_VANTAGE_API_KEY, ALPHA_VANTAGE_BASE_URL
-from Services.redis_service_client import get_from_redis_client, save_to_redis_client
-from Services.mongo_service_client import get_symbols_from_mongoclient, insert_symbols_into_mongoclient, clear_symbols_collection
+from Services.mongo_service_client import insert_symbols_into_mongoclient, clear_symbols_collection
 
 def alpha_vantage_fetch_data(url):
     try:
@@ -29,7 +27,7 @@ def fetch_and_store_ticker_data():
         if api_limit_reached:
             print(f"Skipping fetching for {ticker} due to API rate limit reached")
             continue
-        url = f"{ALPHA_VANTAGE_BASE_URL}query?function=TIME_SERIES_DAILY&symbol={ticker}.BSE&outputsize=compact&apikey={ALPHA_VANTAGE_API_KEY}"
+        url = f"{ALPHA_VANTAGE_BASE_URL}query?function=TIME_SERIES_DAILY&symbol={ticker}&outputsize=compact&apikey={ALPHA_VANTAGE_API_KEY}"
         data = alpha_vantage_fetch_data(url)
         if data and "Time Series (Daily)" in data:
             symbol_data = {
@@ -43,7 +41,7 @@ def fetch_and_store_ticker_data():
             print(f"API limit reached: {data}")
 
     if symbols:
-        clear_symbols_collection()  # Clear existing data
+        clear_symbols_collection()
         insert_symbols_into_mongoclient(symbols)
     else:
         print("No symbols to insert into MongoDB")

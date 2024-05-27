@@ -1,20 +1,19 @@
 .tickers-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .tickers-table th,
-  .tickers-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .tickers-table th {
-    background-color: #f2f2f2;
-  }
-  
-  .tickers-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tickers-table th,
+.tickers-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tickers-table th {
+  background-color: #f2f2f2;
+}
+
+.tickers-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
