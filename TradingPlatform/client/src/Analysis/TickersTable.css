@@ -1,19 +1,12 @@
-.tickers-table {
-  width: 100%;
-  border-collapse: collapse;
+.table-responsive {
+  margin-top: 20px;
 }
 
-.tickers-table th,
-.tickers-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+.table thead th {
+  background-color: #343a40;
+  color: #fff;
 }
 
-.tickers-table th {
-  background-color: #f2f2f2;
-}
-
-.tickers-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
 }

@@ -9,11 +9,20 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <nav className="navbar navbar-expand-lg navbar-dark">
-            <Link className="navbar-brand" to="/tickers">Stock Dashboard</Link>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <Link className="navbar-brand" to="/">Stock Dashboard</Link>
+            <div className="collapse navbar-collapse">
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">Home</Link>
+                </li>
+              </ul>
+            </div>
           </nav>
         </header>
-        <AppRouter />
+        <div className="container mt-5">
+          <AppRouter />
+        </div>
       </div>
     </Router>
   );

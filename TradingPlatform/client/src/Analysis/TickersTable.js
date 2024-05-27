@@ -4,24 +4,26 @@ import './TickersTable.css';
 
 function TickersTable({ tickers }) {
   return (
-    <table className="tickers-table">
-      <thead>
-        <tr>
-          <th>Ticker Name</th>
-          <th>Ticker Symbol</th>
-          <th>Last Refreshed</th>
-        </tr>
-      </thead>
-      <tbody>
-        {tickers.map((ticker, index) => (
-          <tr key={index}>
-            <td>{ticker.name}</td>
-            <td>{ticker.symbol}</td>
-            <td>{ticker.last_refreshed}</td>
+    <div className="table-responsive">
+      <table className="table table-striped table-bordered">
+        <thead className="thead-dark">
+          <tr>
+            <th scope="col">Ticker Name</th>
+            <th scope="col">Ticker Symbol</th>
+            <th scope="col">Last Refreshed</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {tickers.map((ticker, index) => (
+            <tr key={index}>
+              <td>{ticker.name}</td>
+              <td>{ticker.symbol}</td>
+              <td>{ticker.last_refreshed}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
